@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLMPS Result - First Term 2025/2026</title>
+  <link rel="stylesheet" href="result.css">
+</head>
+<body>
+  <div class="result-page">
+    <header class="header">
+      <img src="school-logo3.png" alt="School Logo" class="school-logo">
+      <div class="school-info">
+        <h1>THE LEADERS MEMORIAL PRIVATE SCHOOL</h1>
+        <p>17, Shoye Odubana Street, via Maciland Busstop, Off Lafunke Road, Ijegun Lagos</p>
+        <p>Emails: theleadersmemorialprivatesch@gmail.com | contacttlmps@gmail.com</p>
+        <p>Website: <a href="https://tlmps.netlify.app" target="_blank">tlmps.netlify.app</a></p>
+        <h2>First Term Report Card – 2025/2026 Session</h2>
+      </div>
+      <img id="studentPhoto" alt="Student Passport" class="student-photo">
+    </header>
+
+    <section class="details-wrapper">
+      <section class="student-details">
+        <h3>Personal Details</h3>
+        <table>
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td><span id="studentName"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Sex:</strong></td>
+            <td><span id="studentSex"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Class:</strong></td>
+            <td><span id="studentClass"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Admission No:</strong></td>
+            <td><span id="studentID"></span></td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="school-dates">
+        <h3>Attendance Details</h3>
+        <table>
+          <tr><td><strong>Next Term Begins:</strong></td><td>13th Jan, 2026</td></tr>
+          <tr><td><strong>School Opened For:</strong></td><td>120 Days</td></tr>
+          <tr><td><strong>Days Present:</strong></td><td>______</td></tr>
+          <tr><td><strong>Days Absent:</strong></td><td>______</td></tr>
+        </table>
+      </section>
+    </section>
+
+    <div class="performance-wrapper">
+      <!-- Left: Academic Performance (expands to fill remaining space) -->
+      <section class="academic-performance">
+        <div class="section-header">
+          <h3>Academic Performance</h3>
+        </div>
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>CA<br>(40)</th>
+              <th>Exam<br>(60)</th>
+              <th>Total</th>
+              <th>Remark</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </section>
+
+      <!-- Right: Weighted Scores & Character -->
+      <section class="right-panel">
+        <!-- Weighted Average Scores -->
+        <section class="weighted-scores">
+          <div class="section-header">
+            <h3>Weighted Scores</h3>
+          </div>
+          <table id="weightsTable">
+            <tr>
+              <td><strong>Average Score:</strong></td>
+              <td><span id="avgDisplay">0</span>%</td>
+            </tr>
+            <tr>
+              <td><strong>Total Score:</strong></td>
+              <td><span id="totalDisplay">0</span></td>
+            </tr>
+            <tr>
+              <td><strong>Class Position:</strong></td>
+              <td>___</td>
+            </tr>
+          </table>
+        </section>
+
+        <!-- Character & Conduct Scores - Scoring Grid -->
+        <section class="character-scores">
+          <div class="section-header">
+            <h3>Character & Conduct</h3>
+          </div>
+          <table id="characterTable" class="character-grid">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Character Trait</th>
+                <th style="width: 15%;">1</th>
+                <th style="width: 15%;">2</th>
+                <th style="width: 15%;">3</th>
+                <th style="width: 15%;">4</th>
+                <th style="width: 15%;">5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Neatness</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Punctuality</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Obedience</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Honesty</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Cooperation</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Respect</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Discipline</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </div>
+
+    <!-- Extracurricular Activities -->
+    <section class="extracurricular" style="clear: both;">
+      <div class="section-header">
+        <h3>Extracurricular Activities</h3>
+      </div>
+      <div id="extracurricularList">
+        <p><strong>Clubs & Societies:</strong> <span id="clubs">JETS Club</span></p>
+        <p><strong>Sports & Games:</strong> <span id="sports">_______________</span></p>
+        <p><strong>Other Activities:</strong> <span id="otherActivities">_______________</span></p>
+      </div>
+    </section>
+
+    <section class="comments-signatures-wrapper">
+      <section class="teacher-section">
+        <h3>Teacher's Comment</h3>
+        <div class="comment-box">
+          _______________________________________________<br><br>
+        </div>
+        <div class="signature-line">
+          ______________________<br>
+          <strong>Teacher's Signature</strong>
+        </div>
+      </section>
+
+      <section class="principal-section">
+        <h3>Principal's Comment</h3>
+        <div class="comment-box" id="principalCommentBox">
+          <p id="principalComment"></p>
+        </div>
+        <div class="signature-line">
+          ______________________<br>
+          <strong>Principal's Signature</strong>
+          <button id="downloadBtn" class="download-btn">📥 Download Your Result</button>
+        </div>
+      </section>
+    </section>
+
+    <div class="logout-container">
+      <button id="logoutBtn" class="logout-btn"> Logout</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="result_script.js"></script>
+</body>
+</html>

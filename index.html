@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Leaders Memorial Private School</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="school-logo3.png" alt="School Logo" class="school-logo">
+                <div class="school-info">
+                    <h1 class="school-title">The Leaders Memorial Private School</h1>
+                    <p class="school-tagline">We nurture the leaders of tomorrow</p>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#admission" class="nav-link">Admission</a></li>
+                    <li><a href="login.html" class="nav-link">Results</a></li>
+                    <li><a href="#contacts" class="nav-link">Contacts</a></li>
+                    <li><a href="pictures.html" class="nav-link">Pictures</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <button id="mobile-menu-button" class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slideshow -->
+    <section id="home" class="hero-section">
+        <div class="slideshow-container">
+            <div class="slide fade" style="background-image: url('img/hero.jpg')">
+                <div class="slide-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title typing-text">Shaping Future Leaders</h1>
+                    <p class="hero-subtitle fade-in-text">We nurture the leaders of tomorrow</p>
+                    <a href="#admission" class="hero-button pulse-button">Enroll Now</a>
+                </div>
+            </div>
+
+            <div class="slide fade" style="background-image: url('img/need/carousel (10).jpg')">
+                <div class="slide-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title typing-text">Excellence in Education</h1>
+                    <p class="hero-subtitle fade-in-text">Committed to student success and growth</p>
+                    <a href="login.html" class="hero-button pulse-button">Check Your Results</a>
+                </div>
+            </div>
+
+            <div class="slide fade" style="background-image: url('img/need/carousel (5).jpg')">
+                <div class="slide-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title typing-text">Building Character & Values</h1>
+                    <p class="hero-subtitle fade-in-text">Developing well-rounded individuals</p>
+                    <a href="#about" class="hero-button pulse-button">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Slideshow controls -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+            <!-- Slide dots -->
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">About Our School</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text scroll-animate">
+                    <h3 class="about-subtitle">Our Mission</h3>
+                    <p class="about-description">To provide a nurturing environment that fosters academic excellence, character development, and leadership skills in every student.</p>
+
+                    <h3 class="about-subtitle">Our Vision</h3>
+                    <p class="about-description">To be recognized as a premier institution that produces well-rounded individuals who contribute positively to society.</p>
+
+                    <div class="stats-container">
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-graduation-cap stat-icon"></i>
+                            <h4 class="stat-title counter" data-target="15">15 </h4>
+                            <p class="stat-description">+ Years of Excellence</p>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-users stat-icon"></i>
+                            <h4 class="stat-title counter" data-target="600">500</h4>
+                            <p class="stat-description">+ Students</p>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <i class="fas fa-trophy stat-icon"></i>
+                            <h4 class="stat-title counter" data-target="10">10</h4>
+                            <p class="stat-description">+ Awards Won</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image-container scroll-animate">
+                    <img src="img/hero.jpg" alt="School Building" class="about-image">
+                    <div class="image-badge glass-effect">
+                        <h4 class="badge-title">Since 2009</h4>
+                        <p class="badge-text">Educating Future Leaders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section id="admission" class="admission-section">
+        <div class="section-container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">Admission Process</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card glass-effect scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="step-icon-container">
+                        <i class="fas fa-file-alt step-icon"></i>
+                    </div>
+                    <h3 class="step-title">Step 1: Application</h3>
+                    <p class="step-description">Submit the online application form along with required documents.</p>
+                </div>
+
+                <div class="step-card glass-effect scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="step-icon-container">
+                        <i class="fas fa-pencil-alt step-icon"></i>
+                    </div>
+                    <h3 class="step-title">Step 2: Assessment</h3>
+                    <p class="step-description">Students undergo an assessment test to determine placement.</p>
+                </div>
+
+                <div class="step-card glass-effect scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="step-icon-container">
+                        <i class="fas fa-check-circle step-icon"></i>
+                    </div>
+                    <h3 class="step-title">Step 3: Enrollment</h3>
+                    <p class="step-description">Complete registration and payment to secure your spot.</p>
+                </div>
+            </div>
+
+            <div class="admission-form-container glass-effect scroll-animate">
+                <h3 class="form-title">Admission Form</h3>
+                <form id="admissionForm" class="admission-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="studentName" class="form-label">Student Name</label>
+                            <input type="text" id="studentName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade" class="form-label">Class Applying For</label>
+                            <select id="grade" class="form-input" required>
+                                <option value="">Select Grade</option>
+                                <option value="pre-k">Creche</option>
+                                <option value="pre-k">Kindergarten</option>
+                                <option value="k">Nursery 1</option>
+                                <option value="1">Nursery 2</option>
+                                <option value="2">UBE 1</option>
+                                <option value="3">UBE 2</option>
+                                <option value="4">UBE 3</option>
+                                <option value="5">UBE 4</option>
+                                <option value="6">UBE 5</option>
+                                <option value="7">UBE 6</option>
+                                <option value="8">BASIC 7 (Jss1)</option>
+                                <option value="9">BASIC 8 (Jss2)</option>
+                                <option value="10">BASIC 9 (Jss3)</option>
+                                <option value="11">SSS 1</option>
+                                <option value="12">SSS 2</option>
+                                <option value="13">SSS 3</option>
+                                <option value="14">Adult Education</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentName" class="form-label">Parent/Guardian Name</label>
+                            <input type="text" id="parentName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Additional Information</label>
+                        <textarea id="message" rows="4" class="form-textarea"></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="agree" class="checkbox-input" required>
+                        <label for="agree" class="checkbox-label">I agree to the <a href="#" class="terms-link">terms and conditions</a></label>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <div class="section-container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">Academic Results</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Our students consistently achieve outstanding results in national and international examinations.</p>
+            </div>
+
+            <div class="results-content">
+                <div class="results-stats glass-effect scroll-animate">
+                    <h3 class="results-subtitle">2025 Examination Results</h3>
+
+                    <div class="progress-container">
+                        <div class="progress-item">
+                            <h4 class="progress-title">Basic Education Certificate Examination</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%" data-target="99"></div>
+                            </div>
+                            <p class="progress-value"><span class="progress-counter" data-target="99">0</span>% Pass Rate</p>
+                        </div>
+
+                        <div class="progress-item">
+                            <h4 class="progress-title">Distinction Rate</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill distinction" style="width: 0%" data-target="78"></div>
+                            </div>
+                            <p class="progress-value"><span class="progress-counter" data-target="78">0</span>% Distinctions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="top-achievers glass-effect scroll-animate">
+                    <h3 class="results-subtitle">Top Achievers 2025</h3>
+
+                    <div class="achievers-table-container">
+                        <table class="achievers-table">
+                            <thead class="table-header">
+                                <tr>
+                                    <th class="table-heading">Student</th>
+                                    <th class="table-heading">Grade</th>
+                                    <th class="table-heading">Achievement</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                <tr>
+                                    <td class="table-data">Adebayo Johnson</td>
+                                    <td class="table-data">Jss 2</td>
+                                    <td class="table-data">Regional Top 5</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">Chiamaka Okonkwo</td>
+                                    <td class="table-data">Jss 2</td>
+                                    <td class="table-data">Perfect Math Score (99%)</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">Oluwaseun Adeleke</td>
+                                    <td class="table-data">Jss 1</td>
+                                    <td class="table-data">Science Olympiad Gold</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">Ngozi Eze</td>
+                                    <td class="table-data">Jss 1</td>
+                                    <td class="table-data">Debate Champion</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-data">Emeka Okafor</td>
+                                    <td class="table-data">Jss 1</td>
+                                    <td class="table-data">Creative Writing Award</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-check scroll-animate">
+                <h3 class="check-title">Click here to <a href="login.html" class="results-link">Check Your Results</a></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts-section">
+        <div class="section-container">
+            <div class="section-header scroll-animate">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">We'd love to hear from you. Reach out to us through any of these channels.</p>
+            </div>
+
+            <div class="contact-methods">
+                <div class="contact-card glass-effect scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="contact-icon-container">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                    </div>
+                    <h3 class="contact-title">Address</h3>
+                    <p class="contact-info">17, shoye odubana street<br>Ijegun Ikotun<br>Lagos State, Nigeria</p>
+                </div>
+
+                <div class="contact-card glass-effect scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="contact-icon-container">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                    </div>
+                    <h3 class="contact-title">Phone</h3>
+                    <p class="contact-info">
+                        Main Office: +234 803 426 0367<br>
+                        Admissions: +234 803 441 7992<br>
+                        Fax: +234 1 2345678
+                    </p>
+                </div>
+
+                <div class="contact-card glass-effect scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="contact-icon-container">
+                        <i class="fas fa-envelope contact-icon"></i>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-info">
+                        theleadersmemorialprivatesch@gmail.com<br>
+                        contacttlmps@gmail.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-form-container glass-effect scroll-animate">
+                <h3 class="form-title">Send Us a Message</h3>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Your Name</label>
+                            <input type="text" id="contactName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Your Email</label>
+                            <input type="email" id="contactEmail" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject" class="form-label">Subject</label>
+                        <input type="text" id="contactSubject" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage" class="form-label">Message</label>
+                        <textarea id="contactMessage" rows="5" class="form-textarea" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 The Leaders Memorial Private School. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>

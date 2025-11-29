@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login | The Leaders Memorial Private School</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <img src="img/tlmps_llogo.png" alt="School Logo" class="logo">
+    <h2>Student Result Portal</h2>
+
+    <form id="loginForm" autocomplete="off">
+      <label for="admission">Admission Number</label>
+      <input type="text" id="admission" name="admission" autocomplete="off" placeholder="Enter Admission No" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Enter Password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="errorMsg" class="error"></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
