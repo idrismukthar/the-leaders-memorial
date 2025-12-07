@@ -1,63 +1,155 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background: #f0f4f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+/* ================================================= */
+/*                 CSS VARIABLES                   */
+/* (Re-defining for standalone use, though style.css should cover these)   */
+/* ================================================= */
+
+:root {
+    --primary-purple: #6a0dad;      
+    --secondary-lilac: #b399d4;     
+    --accent-green: #c4d70b;        
+    --background-dark: #3a0857;     
+    --text-light: #ffffff;          
+    --text-dark: #2c3e50;           
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
 }
+
+/* ================================================= */
+/*                   GLOBAL & LAYOUT FIX              */
+/* ================================================= */
+
+body {
+    /* Use branded purple gradient background */
+    background-color: var(--background-dark) !important;
+    background-image: linear-gradient(135deg, var(--background-dark) 0%, var(--primary-purple) 100%) !important;
+    color: var(--text-light);
+    min-height: 100vh;
+    padding: 0; /* Remove unnecessary padding */
+}
+
+/* 🌟 THIS FIXES THE CENTERING BELOW THE NAVBAR 🌟 */
+.login-page-wrapper {
+    /* This main section accounts for the header height */
+    padding-top: 100px; 
+    min-height: 100vh;
+    
+    /* Center the login box vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px; /* Add space above the footer */
+}
+
+/* ================================================= */
+/*                 LOGIN CONTAINER                  */
+/* ================================================= */
 
 .login-container {
-  width: 350px;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  text-align: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px; /* Ensure space on small screens */
+
+    /* Signature Glass Effect */
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-.logo {
-  width: 100px;
-  margin-bottom: 10px;
+.login-container .logo {
+    width: 60px; 
+    height: auto;
+    margin-bottom: 20px;
+    justify-content: center;
+    display: flex;}
+
+.login-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--accent-green); 
+    font-weight: 800;
 }
 
-h2 {
-  color: #003366;
-  margin-bottom: 20px;
+/* ================================================= */
+/*                 FORM ELEMENTS                     */
+/* ================================================= */
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-  display: block;
-  text-align: left;
-  margin-top: 15px;
-  font-weight: 500;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--secondary-lilac); 
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--secondary-lilac);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark);
+    font-size: 16px;
+    outline: none;
+    transition: var(--transition);
 }
 
-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 10px;
-  background: #003366;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 5px var(--accent-green);
 }
 
-button:hover {
-  background: #00509e;
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: var(--accent-green);
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--secondary-lilac);
+    color: var(--primary-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.forgot-password a {
+    color: var(--secondary-lilac);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
 }
 
 .error {
-  color: red;
-  margin-top: 10px;
-  font-size: 0.9rem;
+    color: #ff6b6b; 
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 0.95rem;
 }

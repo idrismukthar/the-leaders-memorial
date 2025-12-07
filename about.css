@@ -1,0 +1,337 @@
+/* ================================================= */
+/*             CSS VARIABLES & GLOBALS              */
+/* ================================================= */
+
+:root {
+    /* Primary (Deep Purple) and Secondary (Lilac/Lavender) */
+    --primary-color: #6a0dad; 
+    --secondary-color: #b399d4;
+    --accent-color: #8a2be2; /* Blue-Violet, for pop */
+    --text-dark: #2c3e50; 
+    --text-light: #ecf0f1;
+    --background-gradient: linear-gradient(135deg, var(--primary-color) 0%, #4c118b 100%);
+    --card-bg: rgba(255, 255, 255, 0.1); /* Light glass effect */
+    --border-radius: 20px;
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background-gradient);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: var(--text-light);
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 40px;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* ================================================= */
+/*                HEADER & NAV BAR                  */
+/* ================================================= */
+
+.main-header {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.logo-box img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+/* Second Header - Above the intro section */
+.header {
+    text-align: center;
+    padding: 80px 20px 20px;
+    background: var(--primary-color); /* To extend the purple feel */
+}
+
+.school-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 5px solid var(--secondary-color);
+    animation: pulse 2s infinite;
+}
+
+.school-name {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* ================================================= */
+/*             INTRO & MISSION/VISION               */
+/* ================================================= */
+
+.intro {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: 60px 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: -40px; /* Pull it up into the header area */
+}
+
+.headline {
+    font-size: 48px;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 10px rgba(138, 43, 226, 0.5);
+}
+
+.intro-text {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-vision {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.mission-vision .card {
+    flex: 1;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+.mission-vision .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mission-vision .card h3 {
+    color: var(--accent-color);
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.mission-vision .card p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ================================================= */
+/*               STORY, ANTHEM, PLEDGE              */
+/* ================================================= */
+
+.story p {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.story strong {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.anthem, .pledge {
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.15); /* Slightly darker background for focus */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+}
+
+.anthem-box, .pledge-box {
+    margin-top: 30px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(179, 153, 212, 0.3);
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+.anthem-box p, .pledge-box p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 2;
+    color: var(--secondary-color);
+}
+
+/* ================================================= */
+/*                   FOOTER                        */
+/* ================================================= */
+
+.main-footer {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+/* ================================================= */
+/*                 MEDIA QUERIES                    */
+/* ================================================= */
+
+/* Tablet and Mobile adjustments */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 32px;
+    }
+    
+    .headline {
+        font-size: 36px;
+    }
+
+    .mission-vision {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .intro {
+        padding: 40px 20px;
+    }
+    
+    .school-name {
+        font-size: 24px;
+    }
+
+    /* Mobile Nav */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(44, 62, 80, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}

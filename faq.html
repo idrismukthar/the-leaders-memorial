@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - The Leaders Memorial Private School</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reusing global colors defined in style.css */
+        
+        .faq-section {
+            background-color: var(--background-dark); /* Dark Purple */
+            padding: 80px 20px;
+            padding-top: 150px; /* Space below fixed header */
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Accordion Styling */
+        .accordion-item {
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--section-dark);
+            background-color: var(--section-dark); /* Slightly lighter purple for item background */
+            transition: var(--transition);
+        }
+
+        .accordion-item:hover {
+            border-color: var(--secondary-lilac);
+            transform: translateY(-2px);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background-color: var(--primary-purple); /* Deep Purple header */
+            color: var(--text-light);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: var(--accent-green); /* Lemon Green when active */
+            color: var(--text-dark);
+        }
+
+        .accordion-header i {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg); /* Rotate icon when active */
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--section-dark);
+            color: var(--secondary-lilac); /* Lilac answer text */
+        }
+
+        .accordion-content p {
+            padding: 20px 25px;
+            margin: 0;
+            line-height: 1.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Specific Styles for Question Categories */
+        .faq-category {
+            margin-top: 40px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--secondary-lilac);
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="index.html#home" class="logo">
+                <img src="tlmps_llogo.png" alt="TLMPS Logo">
+                <span>TLMPS.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="pictures.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="admission.html" class="cta-button">Enroll Now</a></li>
+                <li><a href="login.html" class="login-btn">Check Results</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+    <main>
+        <section id="faq" class="content-section faq-section">
+            <div class="section-container faq-container">
+                <div class="section-header">
+                    <h1 class="section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+                    <p class="section-description snippet-text" style="color: var(--secondary-lilac);">Find quick answers to common questions about admissions, academics, and school life.</p>
+                </div>
+                
+                
+                <h2 class="faq-category">Academics & Curriculum</h2>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What curriculum does TLMPS follow?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We follow a robust curriculum that integrates the Nigerian curriculum with elements of the **British curriculum** to ensure our students receive a globally competitive education. Our focus is on leadership and critical thinking.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What class levels do you offer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We offer classes from **Pre-Nursery** through **Senior Secondary School 2 (SSS 2)**, covering the Early Years, Primary, and Secondary stages of education.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What extra-curricular activities are available?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We provide a wide range of clubs and activities, including **Coding, Debating, Robotics, Creative Arts, and various sports**. These activities are designed to foster teamwork and holistic development.</p>
+                    </div>
+                </div>
+                
+                <h2 class="faq-category">Admissions & Fees</h2>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        When does the admission process open?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Admission is open year-round, but we encourage parents to apply between **June and August** for the new academic session beginning in September. You can start the process by filling out the inquiry form on our Admission page.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Is there an admission assessment required?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, all prospective students are required to sit for a **simple, non-intimidating assessment** to help us determine the appropriate class placement. This is followed by a brief interview with the parents.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How can I get information on the school fees?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Detailed school fee schedules are provided after the successful completion of the assessment and interview stage. You can contact the **Admissions Office via WhatsApp** for general fee structure information.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 The Leaders Memorial Private School. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+
+        // 💡 JAVASCRIPT FOR ACCORDION DROPDOWN 💡
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+
+                header.addEventListener('click', () => {
+                    // Close all other active items
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    item.classList.toggle('active');
+
+                    if (item.classList.contains('active')) {
+                        // Open content
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        // Close content
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

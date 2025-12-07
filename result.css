@@ -1,479 +1,395 @@
-* {
-  box-sizing: border-box;
+/* --------------------------------- */
+/*       THEME COLOR VARIABLES       */
+/* --------------------------------- */
+:root {
+    --primary-purple: #4b0082; /* Deep Purple */
+    --secondary-lilac: #b39ddb; /* Border/Accent Purple */
+    --accent-color: #6a1b9a; /* Button/Highlight Purple */
+    --success-green: #00801f;
+    --fail-red: #d32f2f;
+    --bg-light: #f9f9fa; /* Very light background for contrast */
+    --table-header: #e6e0f8; /* Pale lavender header */
+    --font-standard: "Poppins", sans-serif;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* ------------------------- */
+/*   GENERAL LAYOUT STYLING  */
+/* ------------------------- */
+* {
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #fafafa;
-  color: #222;
-  padding: 15px;
+    font-family: var(--font-standard);
+    margin: 0;
+    background: #fafafa;
+    padding: 20px;
+    color: #222;
 }
 
-@media print {
-  body {
-    padding: 0;
-    background: white;
-  }
-  .download-btn {
-    display: none;
-  }
-  .logout-btn {
-    display: none;
-  }
-}
-
+/* Main Container for PDF Wrapper */
 .result-page {
-  max-width: 900px;
-  margin: auto;
-  background: #fff;
-  padding: 15px 25px;
-  border: 2px solid #a88adb;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-lilac);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-size: 14px;
 }
 
-@media print {
-  .result-page {
-    border: 2px solid #a88adb;
-    box-shadow: none;
-  }
+.result-container {
+    padding: 15px 25px 25px 25px; /* Padding for the main content area */
 }
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  border-bottom: 2px solid #b39ddb;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
+/* ------------------------- */
+/*          HEADER           */
+/* ------------------------- */
+
+.main-header {
+    /* 🔥 FIX: Logo Left, Text Center, Photo Right using Flexbox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 25px 15px 25px;
+    border-bottom: 3px solid var(--primary-purple); /* Stronger separator */
 }
 
-.school-logo, .student-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #b39ddb;
+.logo, .student-photo {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--secondary-lilac);
 }
 
-.school-info {
-  flex: 1;
-  margin: 0 10px;
-  color: #4b0082;
+.logo {
+    border-radius: 50%;
 }
 
-.school-info h1 {
-  margin: 0;
-  color: #4b0082;
-  font-size: 18px;
-  font-weight: bold;
+.student-photo {
+    border-radius: 6px;
 }
 
-.school-info p {
-  margin: 3px 0;
-  font-size: 11px;
-  line-height: 1.3;
+.header-center {
+    flex-grow: 1;
+    text-align: center;
+    color: var(--primary-purple);
 }
 
-.school-info h2 {
-  margin: 5px 0 0 0;
-  color: #6a1b9a;
-  font-size: 14px;
+.school-name {
+    margin: 5px 0 3px 0;
+    font-size: 20px;
+    font-weight: 700;
 }
 
-/* Details wrapper - flex row */
-.details-wrapper {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 10px;
-  justify-content: space-between;
+.address,
+.contacts,
+.website {
+    font-size: 11px;
+    margin: 2px 0;
+    line-height: 1.3;
 }
 
-.student-details, .school-dates {
-  flex: 1;
-  min-width: 0;
+.term-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent-color);
+    border-top: 1px solid var(--secondary-lilac);
+    padding-top: 5px;
 }
 
-.student-details h3, .school-dates h3 {
-  margin: 0 0 8px 0;
-  font-size: 13px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 1px solid #b39ddb;
-  padding-bottom: 4px;
+/* ------------------------- */
+/*     DETAILS & PERFORMANCE  */
+/* ------------------------- */
+.card {
+    background: var(--bg-light); 
+    border: 1px solid var(--secondary-lilac);
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    page-break-inside: avoid;
 }
 
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0;
-  font-size: 12px;
+.card h3 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-purple);
+    border-bottom: 1px solid var(--secondary-lilac);
+    padding-bottom: 4px;
+    text-align: left;
 }
 
-.student-details table td,
-.school-dates table td {
-  border: 1px solid #ddd;
-  padding: 4px 6px;
-  font-size: 11px;
+/* Two-column layout handler */
+.two-col {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Allows stacking on small screens/print */
 }
 
-.student-details table td:first-child,
-.school-dates table td:first-child {
-  font-weight: bold;
-  background-color: #f5f5f5;
-  width: 40%;
+.student-admin-wrapper > div {
+    flex: 1;
+    min-width: 45%;
 }
 
-/* Performance Wrapper - flex container for Academic + Right Panel */
+/* Performance Section Layout */
 .performance-wrapper {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+    align-items: flex-start; /* Aligns academic table and summary blocks to the top */
 }
 
-/* Academic Performance - expands to fill space */
-.academic-performance {
-  flex: 1;
-  min-width: 300px;
-  margin-bottom: 0;
+.academic-results {
+    flex: 2; /* Main table takes 2/3 width */
 }
 
-/* Right Panel - fixed on the right, narrower */
-.right-panel {
-  flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.summary-details {
+    flex: 1; /* Summary blocks take 1/3 width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+/* ------------------------- */
+/*           TABLES          */
+/* ------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    page-break-inside: avoid;
 }
 
-.academic-performance h3,
-.weighted-scores h3,
-.character-scores h3 {
-  margin: 0;
-  font-size: 13px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 2px solid #b39ddb;
-  padding-bottom: 4px;
-  display: inline-block;
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+    text-align: left;
 }
 
-.download-btn {
-  padding: 6px 12px;
-  background-color: #6a1b9a;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
+table th {
+    background: var(--table-header);
+    color: var(--primary-purple);
+    font-weight: 600;
+    text-align: center;
+    font-size: 10px;
 }
 
-.download-btn:hover {
-  background-color: #4b0082;
+/* Data Tables (Student Info, Summary) */
+.data-table td {
+    font-size: 11px;
+    border: none;
+    padding: 3px 0;
+}
+.data-table tr:first-child td {
+    padding-top: 0;
+}
+.data-table tr:last-child td {
+    padding-bottom: 0;
 }
 
-#resultsTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 8px 0;
+.data-table td:first-child {
+    font-weight: 500;
+    width: 45%;
 }
 
-#resultsTable th,
-#resultsTable td {
-  border: 1px solid #ddd;
-  padding: 3px 4px;
-  font-size: 10px;
-  text-align: left;
-}
-
+/* Academic Results Table */
 #resultsTable th {
-  background: #dcd0ff;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
+    font-size: 9px;
+    padding: 3px;
 }
 
 #resultsTable td {
-  text-align: center;
+    font-size: 10px;
+    text-align: center;
 }
 
 #resultsTable td:first-child {
-  text-align: left;
-  font-weight: 500;
+    text-align: left;
+    font-weight: 400;
 }
 
-.average-section {
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #4b0082;
+/* Character Grid (Rating cells should be empty by default) */
+.character-grid td {
+    font-size: 10px;
+    text-align: center;
+    padding: 2px;
+}
+.character-grid th {
+    font-size: 9px;
+}
+.character-grid td:first-child {
+    font-weight: 500;
+    text-align: left;
+    background-color: #f0f0ff;
 }
 
-.average-section p {
-  margin: 4px 0;
-}
 
-/* Comments and Signatures Wrapper */
+/* ------------------------- */
+/*        COMMENTS & SIGS    */
+/* ------------------------- */
+
 .comments-signatures-wrapper {
-  display: flex;
-  gap: 20px;
-  margin-top: 15px;
-  justify-content: space-between;
+    margin-bottom: 20px;
+    /* Fix 1: Push the two comment sections apart */
+    justify-content: space-between; 
 }
 
-.teacher-section, .principal-section {
-  flex: 1;
-  min-width: 0;
-}
-
-.teacher-section h3, .principal-section h3 {
-  margin: 0 0 8px 0;
-  font-size: 13px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 1px solid #b39ddb;
-  padding-bottom: 4px;
-}
-
-/* Comment boxes */
 .comment-box {
-  border: 1px solid #999;
-  border-radius: 6px;
-  padding: 10px;
-  min-height: 45px;
-  margin-bottom: 10px;
-  font-family: "Georgia", "Garamond", serif;
-  font-size: 11px;
-  line-height: 1.4;
-  background-color: #fefefe;
+    border: 1px dashed var(--secondary-lilac);
+    /* Fix 2: Make the box taller */
+    min-height: 100px; 
+    margin: 10px 0 20px 0;
+    padding: 8px;
+    /* Fix 3: Add rounded corners */
+    border-radius: 8px; 
+    font-family: "Georgia", serif; /* Default font for the box */
+    font-size: 11px;
 }
 
-.principal-section .comment-box {
-  font-style: italic;
-}
-
-.principal-section .comment-box p {
-  margin: 0;
-  color: #333;
-}
-
-/* Signature lines */
-.signature-line {
-  text-align: center;
-  font-size: 11px;
-  margin-top: 15px;
-}
-
-.signature-line strong {
-  display: block;
-  margin-top: 5px;
-}
-
-/* Utilities */
-.average-section {
-  background-color: #f5f5f5;
-  padding: 8px;
-  border-radius: 4px;
-  border-left: 3px solid #6a1b9a;
-}
-
-/* Print styles */
-@media print {
-  body {
+/* 🔥 NEW RULE: Style the Principal's actual comment text */
+#principalComment {
+    font-family: 'Dancing Script', cursive; /* The curly font */
+    font-size: 16px; /* Larger to look like handwriting */
+    font-weight: 700; /* Bolder look */
+    line-height: 1.3;
+    color: var(--primary-purple); /* Make it purple to stand out */
     margin: 0;
     padding: 0;
-  }
-  
-  .result-page {
-    max-width: 100%;
+}
+
+.comments-signatures-wrapper > div {
+    flex: 1; 
+    min-width: 45%;
+}
+
+.sign {
+    text-align: center;
+    margin: 5px 0 0 0;
+    font-size: 11px;
+}
+
+.sign hr {
+    margin: 5px auto;
+    width: 70%;
+    border: 0;
+    border-top: 1px solid #333;
+}
+
+/* Print adjustment for the cursive font */
+@media print {
+    #principalComment {
+        font-size: 13px !important; /* Smaller print size */
+    }
+}
+
+/* ------------------------- */
+/*     FOOTER AND BUTTONS    */
+/* ------------------------- */
+.footer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.print-info {
+    font-size: 10px;
+    color: #666;
+}
+#printedOn {
+    font-weight: bold;
+    color: #444;
+}
+
+.buttons-container {
+    text-align: right;
+}
+
+.download-btn {
+    padding: 8px 15px;
+    background: var(--accent-color);
+    color: white;
     border: none;
-    box-shadow: none;
-    padding: 10px;
-  }
-}
-
-/* Performance Wrapper */
-.performance-wrapper {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 15px;
-}
-
-.right-panel {
-  flex: 1;
-  min-width: 300px;
-}
-
-/* Weighted Scores */
-.weighted-scores {
-  padding: 6px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.weighted-scores h3 {
-  margin: 0 0 4px 0;
-  font-size: 11px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 2px solid #b39ddb;
-  padding-bottom: 2px;
-  display: block;
-}
-
-#weightsTable {
-  width: 100%;
-  font-size: 9px;
-}
-
-#weightsTable td {
-  padding: 2px 3px;
-  border: none;
-}
-
-#weightsTable td:first-child {
-  font-weight: bold;
-  width: 60%;
-  font-size: 8px;
-}
-
-#weightsTable td:last-child {
-  text-align: right;
-  font-weight: 500;
-  color: #4b0082;
-  font-size: 9px;
-}
-
-/* Character Scores - Grid Layout */
-.character-scores {
-  padding: 6px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.character-scores h3 {
-  margin: 0 0 4px 0;
-  font-size: 11px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 2px solid #b39ddb;
-  padding-bottom: 2px;
-  display: block;
-}
-
-.character-grid {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 8px;
-}
-
-.character-grid thead th {
-  background-color: #e8d5f2;
-  color: #4b0082;
-  font-weight: bold;
-  padding: 2px 1px;
-  border: 1px solid #b39ddb;
-  text-align: center;
-  font-size: 8px;
-}
-
-.character-grid tbody td {
-  border: 1px solid #ddd;
-  padding: 3px 1px;
-  text-align: center;
-}
-
-.character-grid tbody td:first-child {
-  font-weight: bold;
-  color: #333;
-  padding: 3px 2px;
-  font-size: 8px;
-  text-align: left;
-}
-
-.character-grid tbody td:not(:first-child) {
-  text-align: center;
-  font-size: 9px;
-  cursor: pointer;
-}
-
-/* Extracurricular */
-.extracurricular {
-  clear: both;
-  margin-bottom: 15px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.extracurricular h3 {
-  margin: 0 0 8px 0;
-  font-size: 13px;
-  color: #4b0082;
-  font-weight: bold;
-  border-bottom: 2px solid #b39ddb;
-  padding-bottom: 4px;
-  display: inline-block;
-}
-
-#extracurricularList p {
-  margin: 4px 0;
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-.comments-section-divider {
-  clear: both;
-  margin: 10px 0;
-}
-
-/* Logout Button */
-.logout-container {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
 .logout-btn {
-  padding: 10px 24px;
-  background-color: #d32f2f;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  transition: background-color 0.3s ease;
+    margin-left: 10px;
+    padding: 8px 15px;
+    background: var(--fail-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-.logout-btn:hover {
-  background-color: #b71c1c;
+
+/* ================================================= */
+/*                 A4 PRINT STYLING                  */
+/* ================================================= */
+
+@page {
+    size: A4;
+    margin: 10mm 15mm;
 }
 
-.logout-btn:active {
-  transform: scale(0.98);
+@media print {
+    /* Base reset */
+    body {
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .result-page {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .result-container {
+        padding: 10px 15mm 10px 15mm; /* Apply margin from @page */
+    }
+
+    /* CRITICAL: Page break prevention */
+    .main-header,
+    .student-admin-wrapper,
+    .performance-wrapper,
+    .comments-signatures-wrapper,
+    .card,
+    .two-col,
+    table {
+        page-break-inside: avoid !important;
+    }
+
+    /* Print specific font sizing to fit A4 */
+    .school-name { font-size: 15px; }
+    .term-title { font-size: 13px; }
+    .address, .contacts, .website { font-size: 9px; }
+    
+    .data-table td, .data-table td:first-child { font-size: 9px; }
+    #resultsTable td, #resultsTable th { font-size: 8px; padding: 2px; }
+    .character-grid td, .character-grid th { font-size: 8px; padding: 2px; }
+    .comment-box { min-height: 50px; font-size: 9px; padding: 5px; }
+    .sign { font-size: 9px; }
+    .print-info { font-size: 8px; }
+
+    /* Hide digital controls */
+    .footer-controls .buttons-container,
+    .download-btn,
+    .logout-btn {
+        display: none !important;
+    }
 }

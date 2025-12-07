@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TLMPS</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="index.html#home" class="logo">
+                <img src="tlmps_llogo.png" alt="TLMPS Logo">
+                <span>TLMPS.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="pictures.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="admission.html" class="cta-button">Enroll Now</a></li>
+                <li><a href="login.html" class="login-btn">Check Results</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+    <main>
+        <section id="contact-full" class="content-section contacts-section" style="padding-top: 150px;">
+            <div class="section-container">
+                <div class="section-header">
+                    <h1 class="section-title"><i class="fas fa-headset"></i> Contact The Leaders Memorial Private School</h1>
+                    <p class="section-description snippet-text">We'd love to hear from you. Reach out to us through any of these channels or send a quick message below.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-card glass-effect">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h3 class="contact-title">Address</h3>
+                        <p class="contact-info">17, shoye odubana street, Ijegun Ikotun, Lagos State, Nigeria</p>
+                    </div>
+                    <div class="contact-info-card glass-effect">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <h3 class="contact-title">Phone</h3>
+                        <p class="contact-info">Main Office: <a href="tel:+2348034260367">+234 803 426 0367</a><br>Admissions: <a href="tel:+2348034417992">+234 803 441 7992</a></p>
+                    </div>
+                    <div class="contact-info-card glass-effect">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h3 class="contact-title">Email</h3>
+                        <p class="contact-info"><a href="mailto:theleadersmemorialprivatesch@gmail.com">theleadersmemorialprivatesch@gmail.com</a></p>  
+                        
+                        <p class="contact-info"><a href="mailto:contacttlmps@gmail.com">contacttlmps@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div style="margin: 50px 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!4v1765056079938!6m8!1m7!1sG8rnJwautKG0B-urlGtfZA!2m2!1d6.522791829765527!2d3.249696068703842!3f82.21397140583522!4f-10.399701710245694!5f0.7820865974627469" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <h2 style="text-align: center; color: var(--accent-green); margin: 30px 0;">Send Us a Quick Message</h2>
+
+                <div class="contact-form-container glass-effect">
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="email" id="email" placeholder="Your Email (Optional)">
+                        <textarea rows="6" id="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-button">Send via WhatsApp</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 15px; color: var(--secondary-lilac); font-size: 0.9em;">
+                        Your message will open directly in WhatsApp for instant communication.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        </footer>
+    <script src="main.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+
+        // 🟢 WHATSAPP FUNCTIONALITY SCRIPT 🟢
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting normally
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = '2348034260367'; // Main Office number (without leading +)
+
+            let fullMessage = `Hello TLMPS Admissions Team,\n\n`;
+            fullMessage += `I am ${name} and I would like to inquire about:\n`;
+            fullMessage += `"${message}"\n\n`;
+            
+            if (email) {
+                fullMessage += `(My email is: ${email})\n`;
+            } else {
+                fullMessage += `(No email provided)\n`;
+            }
+            
+            const encodedMessage = encodeURIComponent(fullMessage);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank'); // Open WhatsApp link in a new tab
+        });
+    </script>
+</body>
+</html>

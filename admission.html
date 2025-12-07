@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - TLMPS</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="index.html#home" class="logo">
+                <img src="tlmps_llogo.png" alt="TLMPS Logo">
+                <span>TLMPS.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="pictures.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="admission.html" class="active cta-button">Enroll Now</a></li>
+                <li><a href="login.html" class="login-btn">Check Results</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+    <main>
+        <section id="admission-main" class="content-section admission-section" style="padding-top: 150px;">
+            <div class="section-container">
+                <div class="section-header">
+                    <h1 class="section-title"><i class="fas fa-user-plus"></i> Enroll Your Child Today</h1>
+                    <p class="section-description snippet-text">Follow our simple 3-step process to secure a spot for your child at TLMPS.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card glass-effect">
+                        <i class="fas fa-file-alt step-icon"></i>
+                        <h3 class="step-title">1. Online Inquiry</h3>
+                        <p class="step-description">Fill out the form below to begin your application and schedule a tour.</p>
+                    </div>
+                    <div class="step-card glass-effect">
+                        <i class="fas fa-pencil-alt step-icon"></i>
+                        <h3 class="step-title">2. Assessment & Interview</h3>
+                        <p class="step-description">Your child sits for a simple placement assessment followed by a parent interview.</p>
+                    </div>
+                    <div class="step-card glass-effect">
+                        <i class="fas fa-check-circle step-icon"></i>
+                        <h3 class="step-title">3. Final Registration</h3>
+                        <p class="step-description">Receive the admission letter and complete all necessary payments and documentation.</p>
+                    </div>
+                </div>
+
+                <div class="admission-requirements" style="margin-top: 50px;">
+                    <h2 style="color: var(--secondary-lilac); text-align: center; margin-bottom: 20px;">Admission Requirements</h2>
+                    <ul class="requirements-list">
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i> Completed Application Form (Digital or Physical)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i> Photocopy of Birth Certificate</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i> Photocopy of the Last Academic Report Card (if transferring)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i> Two recent passport photographs (Parent and Student)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-green); margin-right: 10px;"></i> Evidence of Medical Fitness</li>
+                    </ul>
+                </div>
+
+                <h2 style="text-align: center; color: var(--accent-green); margin: 50px 0 30px;">Start Your Application Inquiry</h2>
+                
+                <div class="contact-form-container glass-effect" style="max-width: 800px;">
+                    <form id="admissionForm" class="contact-form">
+                        
+                        <label for="studentName" style="color: var(--secondary-lilac);">Student's Full Name:</label>
+                        <input type="text" id="studentName" placeholder="E.g., Michael Okoro" required>
+
+                        <label for="grade" style="color: var(--secondary-lilac);">Applying to Grade/Class:</label>
+                        <select id="grade" required>
+                            <option value="">-- Select Class --</option>
+                            <option value="Pre-Nursery">Pre-Nursery</option>
+                            <option value="Nursery 1">Nursery 1</option>
+                            <option value="Nursery 2">Nursery 2</option>
+                            <option value="Primary 1">Primary 1</option>
+                            <option value="Primary 2">Primary 2</option>
+                            <option value="Primary 3">Primary 3</option>
+                            <option value="Primary 4">Primary 4</option>
+                            <option value="Primary 5">Primary 5</option>
+                            <option value="JSS 1">JSS 1</option>
+                            <option value="JSS 2">JSS 2</option>
+                            <option value="JSS 3">JSS 3</option>
+                            <option value="SSS 1">SSS 1</option>
+                            <option value="SSS 2">SSS 2</option>
+                        </select> <br>
+                        
+                        <label for="parentName" style="color: var(--secondary-lilac);">Parent/Guardian Full Name:</label>
+                        <input type="text" id="parentName" placeholder="Parent/Guardian Name" required>
+
+                        <label for="phone" style="color: var(--secondary-lilac);">Phone Number:</label>
+                        <input type="tel" id="phone" placeholder="Your best contact number (for WhatsApp)" required>
+                        
+                        <label for="enquiry" style="color: var(--secondary-lilac);">Additional Enquiry/Message:</label>
+                        <textarea rows="4" id="enquiry" placeholder="Optional: Any specific questions or concerns..."></textarea>
+                        
+                        <button type="submit" class="submit-button">Send Application Inquiry via WhatsApp</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 15px; color: var(--secondary-lilac); font-size: 0.9em;">
+                        We will contact you immediately via the provided WhatsApp number to schedule the next steps.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+    </script>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('admissionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting normally
+
+            const studentName = document.getElementById('studentName').value;
+            const grade = document.getElementById('grade').value;
+            const parentName = document.getElementById('parentName').value;
+            const phone = document.getElementById('phone').value;
+            const enquiry = document.getElementById('enquiry').value || 'No additional message.';
+
+            const officeNumber = '2348034417992'; // Using the Admissions number: +234 803 441 7992
+
+            let fullMessage = `Hello TLMPS Admissions Team,\n\n`;
+            fullMessage += `*New Application Inquiry Submitted*\n`;
+            fullMessage += `----------------------------------\n`;
+            fullMessage += `Student Name: ${studentName}\n`;
+            fullMessage += `Applying For: ${grade}\n`;
+            fullMessage += `Parent Name: ${parentName}\n`;
+            fullMessage += `Contact Phone: ${phone}\n`;
+            fullMessage += `Enquiry: ${enquiry}\n`;
+            fullMessage += `\n*Please assist me with the next steps.*`;
+            
+            const encodedMessage = encodeURIComponent(fullMessage);
+            const whatsappUrl = `https://wa.me/${officeNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank'); // Open WhatsApp link in a new tab
+
+            // Optional: Provide visual feedback after redirecting
+            alert('Your inquiry has been sent! We will contact you via WhatsApp shortly.');
+        });
+    </script>
+</body>
+</html>

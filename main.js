@@ -103,7 +103,8 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = "running";
+      // ADD THE ANIMATED CLASS TO SHOW THE ELEMENT
+      entry.target.classList.add("animated");
 
       if (entry.target.classList.contains("counter")) {
         animateCounters();

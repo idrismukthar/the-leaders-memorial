@@ -1,34 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Login | The Leaders Memorial Private School</title>
-  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
-  <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-  <link rel="manifest" href="img/favicon/site.webmanifest">
-  <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | The Leaders Memorial Private School</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="login.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="login-container">
-    <img src="img/tlmps_llogo.png" alt="School Logo" class="logo">
-    <h2>Student Result Portal</h2>
+    
+    <header class="main-header">
+        <nav class="header-nav">
+            <a href="index.html#home" class="logo">
+                <img src="tlmps_llogo.png" alt="TLMPS Logo">
+                <span>TLMPS.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="pictures.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="admission.html" class="cta-button">Enroll Now</a></li>
+                <li><a href="login.html" class="login-btn active">Check Results</a></li> 
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+    
+    <main class="login-page-wrapper">
+        
+        <div class="login-container">
+            <img src="tlmps_llogo.png" alt="School Logo" class="logo">
+            <h2>Student Result Portal</h2>
+        
+            <form id="loginForm" autocomplete="off">
+                <label for="admission">Admission Number</label>
+                <input type="text" id="admission" name="admission" autocomplete="off" placeholder="Enter Admission No" required>
+        
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Enter Password" required>
+        
+                <button type="submit">Login</button>
 
-    <form id="loginForm" autocomplete="off">
-      <label for="admission">Admission Number</label>
-      <input type="text" id="admission" name="admission" autocomplete="off" placeholder="Enter Admission No" required>
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>
+            </form>
+        
+            <p id="errorMsg" class="error"></p>
+        </div>
+        
+    </main>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Enter Password" required>
-
-      <button type="submit">Login</button>
-    </form>
-
-    <p id="errorMsg" class="error"></p>
-  </div>
-
-  <script src="login.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 The Leaders Memorial Private School. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="login.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
