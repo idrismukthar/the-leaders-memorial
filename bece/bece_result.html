@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BECE Official Result - TLMPS</title>
+    <link rel="stylesheet" href="bece_result_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="print-actions">
+        <button onclick="logout()" class="btn-back">Logout & Exit</button>
+        <button onclick="downloadPDF()" class="btn-download">Download Result (PDF)</button>
+    </div>
+
+    <div id="certificate-page" class="certificate-container">
+        <header class="cert-header">
+            <div class="header-logos">
+                <img src="lag_logo.png" alt="Lagos State Logo" class="lag-logo">
+                <img src="tlmps_logo.png" alt="TLMPS Logo" class="school-logo">
+            </div>
+            <div class="header-text">
+                <h1>THE LEADERS MEMORIAL PRIVATE SCHOOL</h1>
+                <p class="school-address">17, Shoye Odubana Street, Maciland Busstop, Off Lafunke Road, Ijegun Lagos</p>
+                <p class="school-contact">theleadersmemorialprivatesch@gmail.com | contacttlmps@gmail.com</p>
+                <p class="school-web">tlmps.netlify.app</p>
+                <h2 class="exam-title"> OFFICIAL BECE RESULT</h2>
+            </div>
+            <div class="student-photo-box">
+                <img id="studentPhoto" src="default.jfif" alt="Student Photo">
+            </div>
+        </header>
+
+        <section class="details-section">
+            <h3>SECTION A: PERSONAL DETAILS</h3>
+            <div class="details-grid">
+                <p><strong>CANDIDATE NAME:</strong> <span id="candidateName">---</span></p>
+                <p><strong>EXAMINATION NO:</strong> <span id="examNo">---</span></p>
+                <p><strong>CENTRE:</strong> SALIU ABDUL MALIK COLLEGE</p>
+                <p><strong>CENTRE CODE:</strong> AL0295</p>
+            </div>
+        </section>
+
+        <section class="result-section">
+            <h3>SECTION B: STATEMENT OF RESULTS</h3>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>SUBJECT</th>
+                        <th>GRADE</th>
+                        <th>REMARK</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+            <div class="resit-notice">
+                <p class="no-resit">0 RESIT</p>
+            </div>
+        </section>
+
+        <footer class="cert-footer">
+            <div class="comment-box">
+                <p><strong>Principal's Comment:</strong></p>
+                <p id="principalComment" class="comment-text">---</p>
+            </div>
+            
+            <div class="footer-sign-off">
+                <div class="sign-item">
+                    <div class="signature-line"></div>
+                    <p>Signature & Date</p>
+                </div>
+                <div class="stamp-box">
+                    <p>OFFICIAL STAMP</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="bece_result_script.js"></script>
+</body>
+</html>

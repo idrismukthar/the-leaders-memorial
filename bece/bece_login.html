@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BECE Result Login - TLMPS</title>
+    <link rel="stylesheet" href="bece_style.css">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="login-card">
+    <div class="logo-container">
+        <img src="tlmps_logo.png" alt="TLMPS Logo">
+    </div>
+    <h2>BECE Result Portal</h2>
+
+    <div class="input-group">
+        <label>WHAT YEAR DID YOU SIT THIS EXAM?</label>
+        <select id="examYear">
+            <option value="bece23">July 2023</option>
+            <option value="bece24">July 2024</option>
+            <option value="bece" selected>July 2025</option>
+            <option value="bece26">July 2026</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label for="surname">CANDIDATE SURNAME (IN CAPITAL LETTERS)</label>
+        <input type="text" id="surname" name="user_sr_99" placeholder="e.g. BADAMASI" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off">
+    </div>
+
+    <div class="input-group">
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="pass_sr_99" placeholder="Enter your password" readonly onfocus="this.removeAttribute('readonly');" autocomplete="off">
+    </div>
+    <span>Password hint: type in "tlmps + seatNO", your seat number is last digit of exam number</span>
+
+    <button class="btn-login" onclick="handleLogin()">ACCESS RESULT</button>
+    
+    <p id="error-msg"></p>
+    <p id="recovery-msg"></p>
+
+   <a href="forgot_password.html" class="forgot-link">I Forgot my password?, Click Me !</a>
+
+<script src="bece_login_script.js"></script>
+</body>
+</html>

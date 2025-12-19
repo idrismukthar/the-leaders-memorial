@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+:root {
+    --deep-purple: #4B0082;
+    --lilac: #E6E6FA;
+    --lemon-green: #32CD32;
+    --red: #FF0000;
+}
+
+body { background: #555; margin: 0; padding: 10px; font-family: 'Segoe UI', Arial, sans-serif; }
+
+.certificate-container {
+    background: #fff;
+    width: 210mm;
+    height: 295mm; /* Locked to A4 height to prevent second page */
+    margin: 0 auto;
+    padding: 30px;
+    border: 12px double var(--deep-purple);
+    box-sizing: border-box;
+}
+
+.cert-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.header-logos { display: flex; gap: 10px; align-items: center; }
+.lag-logo, .school-logo { height: 65px; }
+
+.header-text { text-align: center; flex-grow: 1; }
+.header-text h1 { margin: 0; font-size: 1.4rem; color: var(--deep-purple); }
+.school-address, .school-contact, .school-web { margin: 2px 0; font-size: 0.75rem; color: #444; }
+.exam-title { margin-top: 10px; font-size: 1.1rem; text-decoration: underline; color: var(--deep-purple); }
+
+.student-photo-box { width: 100px; height: 110px; border: 2px solid var(--deep-purple); }
+.student-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+.details-section h3, .result-section h3 {
+    background: var(--lilac);
+    color: var(--deep-purple);
+    padding: 5px;
+    font-size: 0.85rem;
+    border-left: 6px solid var(--lemon-green);
+}
+
+.details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; margin-bottom: 10px; }
+
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.result-table th, .result-table td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+.result-table th { background: #f2f2f2; color: var(--deep-purple); }
+
+.resit-notice { text-align: center; margin-top: 10px; }
+.no-resit { color: var(--red); font-weight: bold; margin: 5px 0; }
+
+.comment-box { border: 1px dashed var(--deep-purple); padding: 8px; margin-top: 10px; }
+.comment-text { 
+    font-family: 'Dancing Script', cursive; 
+    font-size: 1.3rem; 
+    color: #333; 
+    margin: 5px 0;
+}
+
+.footer-sign-off { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 30px; }
+.signature-line { width: 180px; border-bottom: 2px solid #000; }
+.stamp-box { width: 100px; height: 100px; border: 2px dotted #bbb; color: #bbb; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; }
+
+.print-actions { text-align: center; margin-bottom: 10px; }
+.btn-back, .btn-download { padding: 8px 15px; cursor: pointer; border: none; font-weight: bold; border-radius: 5px; }
+.btn-back { background: #eee; }
+.btn-download { background: var(--deep-purple); color: #fff; margin-left: 10px; }
+
+@media print { .print-actions { display: none; } }

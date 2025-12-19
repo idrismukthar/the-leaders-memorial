@@ -1,0 +1,101 @@
+:root {
+    --deep-purple: #4B0082;
+    --lilac: #E6E6FA;
+    --lemon-green: #32CD32;
+    --soft-lemon: #ccffcc;
+    --error-red: #d9534f;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--deep-purple), #6a1b9a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.login-card {
+    background: var(--lilac);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    border: 3px solid var(--lemon-green);
+}
+
+.logo-container img {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+h2 { color: var(--deep-purple); margin-bottom: 1.5rem; text-transform: uppercase; }
+
+.input-group { text-align: left; margin-bottom: 1.2rem; }
+
+label { display: block; font-weight: bold; margin-bottom: 0.4rem; color: var(--deep-purple); font-size: 0.85rem; }
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--deep-purple);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+input:focus { outline: none; background: var(--soft-lemon); border-color: var(--lemon-green); }
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--deep-purple);
+    color: var(--soft-lemon);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-recover {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background: var(--lemon-green);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.forgot-link {
+    display: block;
+    margin-top: 15px;
+    color: var(--deep-purple);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#recovery-box {
+    margin-top: 15px;
+    border-top: 1px dashed var(--deep-purple);
+    padding-top: 10px;
+}
+
+#error-msg { color: var(--error-red); font-weight: bold; display: none; margin-top: 10px; }
+#recovery-msg { color: var(--deep-purple); background: white; padding: 10px; border-radius: 5px; margin-top: 10px; display: none; }
+
+.hint {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #444;
+    padding: 10px;
+    background: var(--soft-lemon);
+    border-radius: 8px;
+}
