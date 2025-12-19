@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Elite List</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <style>
+        :root { --primary: #4e73df; --dark: #2e3750; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f9; margin: 0; padding: 20px; }
+        .header { background: var(--dark); color: white; padding: 30px; text-align: center; border-radius: 10px; margin-bottom: 30px; }
+        .elite-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th { background: var(--primary); color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #ddd; }
+        tr:nth-child(even) { background: #f8f9fc; }
+        .badge { background: #1cc88a; color: white; padding: 4px 8px; border-radius: 5px; font-weight: bold; }
+        .grid-champs { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .champ-box { background: white; padding: 15px; border-radius: 8px; border-left: 5px solid #f6c23e; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body onload="loadAllData()">
+
+    <div class="header">
+        <h1>🏆 School Academic Elites</h1>
+        <p>Top Performers across All Classes</p>
+        <a href="admin.html" style="color: white; text-decoration: none; border: 1px solid white; padding: 5px 10px; border-radius: 5px;">← Back to Main Portal</a>
+    </div>
+
+    <div id="mainContent">
+        <div class="elite-card">
+            <h2>Top 10 Overall Students (by Average %)</h2>
+            <div id="overallTop">Loading leaderboard...</div>
+        </div>
+
+        <h2>Subject Champions</h2>
+        <div id="subjectChampions" class="grid-champs"></div>
+    </div>
+
+    <script>
+        async function loadAllData() {
+            const files = ['jss1.json', 'jss2.json', 'jss3.json'];
+            let allStudents = [];
+            const subjectMap = {}; // To track best in each subject
+
+            for (let f of files) {
+                try {
+                    const res = await fetch(f);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    
+                    // Filter and Process
+                    data.filter(s => !s.Name.toUpperCase().includes("TEST")).forEach(student => {
+                        let total = 0;
+                        let count = 0;
+
+                        Object.keys(student).forEach(key => {
+                            if (key.includes('(CA 40)')) {
+                                const subName = key.split('(')[0].trim();
+                                const ca = student[key] || 0;
+                                const exam = student[`${subName} (Exam 60)`] || 0;
+                                const subTotal = ca + exam;
+
+                                total += subTotal;
+                                count++;
+
+                                // Track Subject Champions
+                                if (!subjectMap[subName] || subTotal > subjectMap[subName].score) {
+                                    subjectMap[subName] = { name: student.Name, score: subTotal, class: student.Class };
+                                }
+                            }
+                        });
+
+                        student.calculatedAvg = count > 0 ? (total / count) : 0;
+                        student.calculatedTotal = total;
+                        allStudents.push(student);
+                    });
+                } catch(e) { console.error("Error loading " + f, e); }
+            }
+
+            // 1. Sort for Overall Leaderboard
+            allStudents.sort((a, b) => b.calculatedAvg - a.calculatedAvg);
+
+            // 2. Render Overall Table
+            document.getElementById('overallTop').innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Student Name</th>
+                            <th>Class</th>
+                            <th>Total Score</th>
+                            <th>Average</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${allStudents.slice(0, 10).map((s, i) => `
+                            <tr>
+                                <td><span class="badge">${i+1}</span></td>
+                                <td><strong>${s.Name}</strong></td>
+                                <td>${s.Class}</td>
+                                <td>${s.calculatedTotal}</td>
+                                <td style="color:var(--primary); font-weight:bold;">${s.calculatedAvg.toFixed(1)}%</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            // 3. Render Subject Champions
+            const champHtml = Object.keys(subjectMap).sort().map(sub => `
+                <div class="champ-box">
+                    <div style="font-size: 0.8em; color: #666; font-weight: bold; text-transform: uppercase;">${sub}</div>
+                    <div style="font-size: 1.1em; margin: 5px 0;">${subjectMap[sub].name}</div>
+                    <div style="color: #1cc88a; font-weight: bold;">${subjectMap[sub].score} Points (${subjectMap[sub].class})</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('subjectChampions').innerHTML = champHtml;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core Subject Elites</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <style>
+        :root { --primary: #6366f1; --accent: #8b5cf6; --dark: #1e1b4b; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8fafc; margin: 0; padding: 20px; color: #334155; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, var(--dark), var(--primary)); color: white; padding: 40px; text-align: center; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #e2e8f0; }
+        h2 { color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { background: #f1f5f9; color: #475569; padding: 12px; text-align: left; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; }
+        td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
+        tr:hover { background-color: #fcfcfd; }
+        
+        .rank-circle { width: 30px; height: 30px; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 0.9em; }
+        .avg-badge { background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 20px; font-weight: bold; }
+        .subject-tag { display: inline-block; background: #e0e7ff; color: #4338ca; font-size: 0.75em; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-top: 5px; }
+    </style>
+</head>
+<body onload="loadCoreData()">
+
+<div class="container">
+    <div class="header">
+        <h1>🥇 Core Subjects Elite List</h1>
+        <p>Rankings based strictly on 8 Core Subjects</p>
+        <div style="margin-top:15px;">
+            <span class="subject-tag">Maths</span>
+            <span class="subject-tag">English</span>
+            <span class="subject-tag">Civic</span>
+            <span class="subject-tag">Science</span>
+            <span class="subject-tag">Technology</span>
+            <span class="subject-tag">Business</span>
+            <span class="subject-tag">ICT</span>
+            <span class="subject-tag">P.H.E</span>
+        </div> <br>
+
+        <a href="admin.html" style="color: white; text-decoration: none; border: 1px solid white; padding: 5px 10px; border-radius: 5px;">← Back to Main Portal</a>
+    </div>
+
+    <div class="card">
+        <h2>Top 10 Across All Classes</h2>
+        <div id="eliteList">Calculating rankings...</div>
+    </div>
+</div>
+
+<script>
+    // These are the keywords to look for in your JSON keys
+    const coreSubjects = [
+        "Mathematics",
+        "English Studies",
+        "Civic Education",
+        "Basic Science",
+        "Basic Technology",
+        "Business Studies",
+        "INFO AND COMMUNICATION TECHNOLOGY",
+        "Physical and Health Education"
+    ];
+
+    async function loadCoreData() {
+        const files = ['jss1.json', 'jss2.json', 'jss3.json'];
+        let allStudents = [];
+
+        for (let f of files) {
+            try {
+                const res = await fetch(f);
+                if (!res.ok) continue;
+                const data = await res.json();
+                
+                data.filter(s => !s.Name.toUpperCase().includes("TEST")).forEach(student => {
+                    let coreTotal = 0;
+                    let coreCount = 0;
+
+                    // Only look for the 8 core subjects
+                    coreSubjects.forEach(subjectName => {
+                        const caKey = `${subjectName} (CA 40)`;
+                        const examKey = `${subjectName} (Exam 60)`;
+
+                        if (student[caKey] !== undefined || student[examKey] !== undefined) {
+                            const ca = student[caKey] || 0;
+                            const exam = student[examKey] || 0;
+                            coreTotal += (ca + exam);
+                            coreCount++;
+                        }
+                    });
+
+                    // Only add student if they have at least some core subjects recorded
+                    if (coreCount > 0) {
+                        student.coreAvg = coreTotal / coreCount;
+                        student.coreTotal = coreTotal;
+                        allStudents.push(student);
+                    }
+                });
+            } catch(e) { console.error("Error loading " + f, e); }
+        }
+
+        // Sort by Core Average
+        allStudents.sort((a, b) => b.coreAvg - a.coreAvg);
+
+        renderTable(allStudents.slice(0, 15)); // Show top 15
+    }
+
+    function renderTable(students) {
+        const html = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Core Total</th>
+                        <th>Core Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${students.map((s, i) => `
+                        <tr>
+                            <td><div class="rank-circle">${i+1}</div></td>
+                            <td><strong>${s.Name}</strong></td>
+                            <td>${s.Class}</td>
+                            <td>${s.coreTotal} / 800</td>
+                            <td><span class="avg-badge">${s.coreAvg.toFixed(1)}%</span></td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+        document.getElementById('eliteList').innerHTML = html;
+    }
+</script>
+</body>
+</html>
