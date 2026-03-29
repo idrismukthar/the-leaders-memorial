@@ -101,6 +101,10 @@ body {
     color: var(--text-light);
 }
 
+.mobile-menu-header {
+    display: none;
+}
+
 /* ================================================= */
 /*                 HERO BANNER                      */
 /* ================================================= */
@@ -281,12 +285,15 @@ body {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: rgba(44, 62, 80, 0.95); /* A dark overlay for menu */
-        position: absolute;
-        top: 60px;
+        height: 100vh;
+        background: #0f0a1a;
+        position: fixed;
+        top: 0;
         left: 0;
-        padding: 10px 0;
-        text-align: center;
+        padding: 0;
+        text-align: left;
+        z-index: 2000;
+        overflow-y: auto;
     }
 
     .nav-links.show {
@@ -295,11 +302,49 @@ body {
 
     .nav-links li {
         width: 100%;
-        padding: 10px 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     
+    .nav-links li.mobile-menu-header {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 20px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-logo-text {
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: #c4d70b;
+        letter-spacing: 1px;
+    }
+
+    .close-menu {
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+
+    .nav-links li a.login-btn, .nav-links li a.cta-button {
+        display: block;
+        margin: 15px 25px;
+        text-align: center;
+        width: auto;
+        border-radius: 50px;
+    }
+
     .hamburger {
         display: block;
+        padding: 5px;
     }
 
     .navbar {

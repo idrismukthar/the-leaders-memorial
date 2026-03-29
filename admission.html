@@ -20,16 +20,21 @@
                 <img src="tlmps_llogo.png" alt="TLMPS Logo">
                 <span>TLMPS.</span>
             </a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
+                <li class="mobile-menu-header">
+                    <span class="mobile-logo-text">TLMPS.</span>
+                    <span class="close-menu" onclick="toggleMenu()">&times;</span>
+                </li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="pictures.html">Gallery</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
                 <li><a href="admission.html" class="active cta-button">Enroll Now</a></li>
-                <li><a href="login.html" class="login-btn">Check Results</a></li>
+                <li><a href="https://reporter-1aey.onrender.com/" class="login-btn">Check Results</a></li>
             </ul>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </header>
     <main>
         <section id="admission-main" class="content-section admission-section" style="padding-top: 150px;">
@@ -114,7 +119,10 @@
     </main>
 
     <footer class="footer">
-        </footer>
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2026</span> The Leaders Memorial Private School. All rights reserved.</p>
+        </div>
+    </footer>
     <script>
         function toggleMenu() {
             document.querySelector(".nav-links").classList.toggle("show");

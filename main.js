@@ -1,52 +1,43 @@
-/* ========== SLIDESHOW FUNCTIONALITY ========== */
-let slideIndex = 1;
-let slideTimer;
+/* ========== HERO BACKGROUND SLIDESHOW ========== */
+const heroImages = [
+    "img/carousel (22).jpg", "img/carousel (23).jpg", "img/carousel (24).jpg", "img/carousel (25).jpg",
+    "img/hero.jpg", "img/hero1 (1).jpg", "img/hero1 (2).jpg", "img/hero1 (3).jpg", "img/tlmps_llogo.png",
+    "img/carousel (1).jpg", "img/carousel (2).jpg", "img/carousel (3).jpg", "img/carousel (4).jpg",
+    "img/carousel (5).jpg", "img/carousel (6).jpg", "img/carousel (7).jpg", "img/carousel (8).jpg",
+    "img/carousel (9).jpg", "img/carousel (10).jpg", "img/carousel (11).jpg", "img/carousel (12).jpg",
+    "img/carousel (13).jpg", "img/carousel (14).jpg", "img/carousel (15).jpg", "img/carousel (16).jpg",
+    "img/carousel (17).jpg", "img/carousel (18).jpg", "img/carousel (19).jpg", "img/carousel (20).jpg",
+    "img/carousel (21).jpg"
+];
 
-function initSlideshow() {
-  showSlide(slideIndex);
-  autoSlide();
-}
+let heroSlideIndex = 0;
 
-function changeSlide(n) {
-  clearTimeout(slideTimer);
-  showSlide((slideIndex += n));
-  autoSlide();
-}
+function initHeroSlideshow() {
+    const sliderContainer = document.getElementById('dynamic-slider');
+    if (!sliderContainer) return;
+    
+    function nextHeroSlide() {
+        const newSlide = document.createElement('div');
+        newSlide.className = 'hero-bg-slide new-slide';
+        newSlide.style.backgroundImage = `url('${heroImages[heroSlideIndex]}')`;
+        sliderContainer.appendChild(newSlide);
+        
+        // Force reflow
+        void newSlide.offsetWidth;
+        newSlide.classList.add('active');
+        
+        const oldSlides = sliderContainer.querySelectorAll('.hero-bg-slide:not(.new-slide)');
+        oldSlides.forEach(slide => {
+            slide.classList.remove('active');
+            setTimeout(() => slide.remove(), 2000);
+        });
+        
+        newSlide.classList.remove('new-slide');
+        heroSlideIndex = (heroSlideIndex + 1) % heroImages.length;
+    }
 
-function currentSlide(n) {
-  clearTimeout(slideTimer);
-  showSlide((slideIndex = n));
-  autoSlide();
-}
-
-function showSlide(n) {
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
-
-  slides[slideIndex - 1].style.display = "flex";
-  dots[slideIndex - 1].classList.add("active");
-}
-
-function autoSlide() {
-  slideTimer = setTimeout(() => {
-    slideIndex++;
-    showSlide(slideIndex);
-    autoSlide();
-  }, 5000); // Change slide every 5 seconds
+    nextHeroSlide(); // show first instantly
+    setInterval(nextHeroSlide, 5000);
 }
 
 /* ========== COUNTER ANIMATION ========== */
@@ -126,7 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Initialize slideshow
-  initSlideshow();
+  initHeroSlideshow();
+
+  // Dynamic Footer Year
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+  }
 
   // Mobile menu functionality
   setupMobileMenu();

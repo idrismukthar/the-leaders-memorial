@@ -58,7 +58,12 @@
     <img src="tlmps_llogo.png" alt="TLMPS Logo">
     <span>TLMPS.</span>
 </a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-logo-text">TLMPS.</span>
+                    <span class="close-menu" onclick="toggleMenu()">&times;</span>
+                </li>
                 <li><a href="index.html#home" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="pictures.html">Gallery</a></li>
@@ -68,32 +73,30 @@
                 <li><a href="https://reporter-1aey.onrender.com/" class="login-btn">Check Results</a></li>
             </ul>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
     </header>
 
 <main>
 
 <section id="home" class="hero-section">
-    <div class="hero-slide slide1"></div>
-    <div class="hero-slide slide2"></div>
-    <div class="hero-slide slide3"></div>
+    <div id="dynamic-slider"></div>
 
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
         <h1 class="hero-title">
-            We groom 
+            We Nurture 
             <span class="rotator-container">
                 <ul class="rotator">
-                    <li>Future Leaders</li>
+                    <li>Excellence</li>
                     <li>Greatness</li>
                     <li>Innovation</li>
-                    <li>Excellence</li>
+                    <li>Creative Minds</li>
+                    <li>The Leaders of Tomorrow</li>
                 </ul>
             </span>
         </h1>
-        <p class="hero-subtitle">We nurture the leaders of tomorrow.</p>
-        <a href="admission.html" class="hero-button pulse-button">Enroll Now</a>
+        <p class="hero-subtitle">We  are the best of the best.</p>
+        <a href="https://reporter-1aey.onrender.com/" class="hero-button pulse-button">Check Results</a>
     </div>
 </section>
 
@@ -153,17 +156,17 @@
 <section id="results" class="content-section results-section">
     <div class="section-container">
         <div class="section-header scroll-animate">
-            <h2 class="section-title"><i class="fas fa-chart-line"></i> Academic Excellence</h2>
+            <h2 class="section-title" style="white-space: nowrap;">Academic Excellence</h2>
         </div>
 
         <div class="results-summary glass-effect scroll-animate">
-            <p class="snippet-text">
-                TLMPS students consistently achieve exceptional results, reflecting the quality of our teaching and dedication. Last year, 95% of our graduating students secured spots in their first-choice tertiary institutions, and our top achievers earned national recognition.
+            <p class="snippet-text" style="text-align: justify;">
+                Our highly qualified teachers are dedicated to nurturing students in every aspect of life, encompassing academics, moral values, sports, and extracurricular activities. All achievements and developmental milestones are carefully documented to track the progress of each student throughout every term and session.
             </p>
             
-            <div class="results-links">
-                <a href="https://reporter-1aey.onrender.com/" class="read-more-btn">Explore Detailed Results <i class="fas fa-search"></i></a>
-                <a href="https://reporter-1aey.onrender.com/" class="results-check-btn">Check My Results <i class="fas fa-lock"></i></a>
+            <div class="results-links stacked-vertical">
+                <a href="https://reporter-1aey.onrender.com/" class="read-more-btn btn-wide">Explore Detailed Results <i class="fas fa-search" style="margin-left: 5px;"></i></a>
+                <a href="https://reporter-1aey.onrender.com/" class="results-check-btn btn-wide">Check My Results <i class="fas fa-lock" style="margin-left: 5px;"></i></a>
             </div>
         </div>
     </div>
@@ -201,7 +204,7 @@
 
 <footer class="footer">
     <div class="footer-content">
-        <p>&copy; 2026 The Leaders Memorial Private School. All rights reserved.</p>
+        <p>&copy; <span id="current-year">2026</span> The Leaders Memorial Private School. All rights reserved.</p>
         <div class="social-links">
             <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>

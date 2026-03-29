@@ -21,15 +21,20 @@
         </a>
 
         <nav class="navbar">
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a class="active" href="pictures.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="admission.html" class="cta-button">Admission</a></li>
-        <li><a href="login.html" class="login-btn">Check Your Results</a></li> 
-    </ul>
-</nav>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-logo-text">TLMPS.</span>
+                    <span class="close-menu" onclick="toggleMenu()">&times;</span>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a class="active" href="pictures.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="admission.html" class="cta-button">Enroll Now</a></li>
+                <li><a href="https://reporter-1aey.onrender.com/" class="login-btn">Check Results</a></li>
+            </ul>
+        </nav>
 
         <div class="hamburger" onclick="toggleMenu()">
             ☰
@@ -80,6 +85,10 @@
     <figure class="gallery-item"><img src="img/need/carousel (25).jpg" alt="School Façade"><figcaption class="caption">School Façade</figcaption></figure>
 
 </div>
+
+<footer class="main-footer">
+    <p>&copy; <span id="current-year">2026</span> The Leaders Memorial Private School. All rights reserved. </p>
+</footer>
 
 <script>
 function toggleMenu() {
